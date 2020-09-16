@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Produits</title>
+<link rel="stylesheet" type="text/css"
+	href="/ufcm/src/main/resources/static/css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+
+	<br />
+	<div class="container">
+		<div class="panel panel-primary">
+			<div class="panel-heading"><h2>Page de connexion réussie 
+			<br>
+			Welcome :
+			</h2>
+			<h3 th:text="${username}"></h3></div>
+			<br>
+			
+			<table class="table">
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Prix</th>
+                    <th>Nombre</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="c:${touteCommandes}">
+                    <td th:text="${c.produit}"></td>
+                    <td th:text="${c.prix} + '€'"> €</td>
+                    <td th:text="${c.nombre}"></td>
+                    <td th:text="${c.date}"></td>
+                 </tr>
+            </tbody>
+            </table>
+			
+			<br>
+			<form action="/login2">
+			<input type="submit" value="Retour">
+			</form>
+		
+		</div>
+	</div>
+
+</body>
+</html>
